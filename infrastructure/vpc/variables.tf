@@ -53,8 +53,22 @@ variable "ttl" {
   default     = "168"
 }
 
-variable "region" {
-  description = "AWS region"
-  type        = string
-  default     = "us-east-2"
+variable "azs" {
+  description = "Availability Zones"
+  type        = list(string)
+}
+
+variable "private_subnets" {
+  description = "Private subnets"
+  type        = list(string)
+}
+
+variable "public_subnets" {
+  description = "Public subnets"
+  type        = list(string)
+}
+
+variable "enable_nat_gateway" {
+  description = "Enable NAT Gateway"
+  type        = bool
 }

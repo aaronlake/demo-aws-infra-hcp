@@ -1,13 +1,16 @@
 module "vpc" {
-  source = "terraform-aws-modules/modules/vpc"
+  source = "../infrastructure/vpc"
 
-  name = "dev-vpc-use2"
-  cidr = "10.0.0.0/16"
-
-  azs             = ["us-east-2a", "us-east-2b"]
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
-  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
-
+  azs                = var.azs
+  public_subnets     = var.public_subnets
+  private_subnets    = var.private_subnets
   enable_nat_gateway = true
 
+  # Tags
+  owner   = "ccoe"
+  budget  = "ccoe"
+  service = "network"
+  hipaa   = true
+  pii     = false
+  ttl     = -1
 }
