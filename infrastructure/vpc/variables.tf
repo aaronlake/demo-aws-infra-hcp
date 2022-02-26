@@ -1,6 +1,5 @@
 locals {
   common_tags = {
-    Name      = var.name
     env       = var.env
     owner     = var.owner
     budget    = var.cost_center
@@ -10,11 +9,6 @@ locals {
     ttl       = var.ttl
     terraform = true
   }
-}
-
-variable "Name" {
-  description = "Name of the resource"
-  type        = string
 }
 
 variable "env" {

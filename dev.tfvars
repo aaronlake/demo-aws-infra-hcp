@@ -1,4 +1,6 @@
-env = "dev"
+env    = "dev"
+region = "us-east-2"
+
 
 # VPC Configuration
 ########################

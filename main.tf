@@ -1,28 +1,17 @@
-provider "aws" {
-  region = var.region
-}
+module "vpc" {
+  source = "./infrastructure/vpc"
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+  azs                = var.azs
+  public_subnets     = var.public_subnets
+  private_subnets    = var.private_subnets
+  enable_nat_gateway = true
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
-}
-
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = var.instance_name
-  }
+  # Tags
+  owner   = "ccoe"
+  env     = var.env
+  budget  = "ccoe"
+  service = "network"
+  hipaa   = true
+  pii     = false
+  ttl     = -1
 }

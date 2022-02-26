@@ -1,7 +1,7 @@
 module "vpc" {
-  source = "terraform-aws-modules/modules/vpc"
+  source = "terraform-aws-modules/vpc/aws"
 
-  name = "${var.namespace}-${var.service}-vpc"
+  name = "${var.env}-${var.service}-vpc"
   cidr = "10.0.0.0/16"
 
   azs                = var.azs
@@ -14,8 +14,8 @@ module "vpc" {
   create_flow_log_cloudwatch_iam_role  = true
   flow_log_max_aggregation_interval    = 60
 
-  vpc_flow_logs_tags = merge(common_tags, {
-    Name  = "${var.namespace}-${var.service}-vpc-flowlogs"
+  vpc_flow_log_tags = merge(common_tags, {
+    Name  = "${var.env}-${var.service}-vpc-flowlogs"
     pii   = false
     ttl   = -1
     hipaa = true
