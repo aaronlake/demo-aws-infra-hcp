@@ -1,12 +1,6 @@
 locals {
   common_tags = {
     env       = var.env
-    owner     = var.owner
-    budget    = var.cost_center
-    service   = var.service
-    hipaa     = var.hipaa
-    pii       = var.pii
-    ttl       = var.ttl
     terraform = true
   }
 }
@@ -65,4 +59,9 @@ variable "public_subnets" {
 variable "enable_nat_gateway" {
   description = "Enable NAT Gateway"
   type        = bool
+}
+
+variable "tags" {
+  description = "Tags"
+  type        = map(string)
 }

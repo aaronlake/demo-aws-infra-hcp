@@ -14,12 +14,19 @@ module "vpc" {
   create_flow_log_cloudwatch_iam_role  = true
   flow_log_max_aggregation_interval    = 60
 
-  vpc_flow_log_tags = merge(common_tags, {
+  vpc_flow_log_tags = merge(local.common_tags, {
     Name  = "${var.env}-${var.service}-vpc-flowlogs"
     pii   = false
     ttl   = -1
     hipaa = true
   })
 
-  tags = merge(local.common_tags, {})
+  tags = merge(local.common_tags, {
+    owner   = var.owner
+    budget  = var.budget
+    service = var.service
+    hipaa   = var.hipaa
+    pii     = var.pii
+    ttl     = -1
+  })
 }
