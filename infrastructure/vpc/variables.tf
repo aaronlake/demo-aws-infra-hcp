@@ -66,6 +66,11 @@ variable "enable_nat_gateway" {
   type        = bool
 }
 
+variable "single_nat_gateway" {
+  description = "Use a single NAT Gateway"
+  type        = bool
+}
+
 variable "tags" {
   description = "Tags"
   type        = map(string)
