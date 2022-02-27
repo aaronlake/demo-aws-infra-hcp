@@ -22,12 +22,15 @@ module "vpc" {
 module "vault" {
   source = "./infrastructure/vault"
 
-  tier           = "starter_small"
-  vpc_cidr_block = module.vpc.vpc_cidr_block
-  aws_region     = local.vars.region
-  hvn_region     = local.vars.hvn_region
-  vpc_id         = module.vpc.vpc_id
-  owner_id       = module.vpc.vpc_owner_id
+  tier                     = "starter_small"
+  vpc_cidr_block           = module.vpc.vpc_cidr_block
+  aws_region               = local.vars.region
+  hvn_region               = local.vars.hvn_region
+  hvn_cidr_block           = local.vars.hvn_cidr_block
+  vpc_id                   = module.vpc.vpc_id
+  owner_id                 = module.vpc.vpc_owner_id
+  private_route_table_ids  = module.vpc.private_route_table_ids
+  database_route_table_ids = module.vpc.database_route_table_ids
 
   env     = local.vars.env
   service = "network"

@@ -44,6 +44,11 @@ variable "hvn_region" {
   type        = string
 }
 
+variable "hvn_cidr_block" {
+  description = "The CIDR block of the HCP HVN."
+  type        = string
+}
+
 variable "cloud_provider" {
   description = "The cloud provider of the HCP HVN and Vault cluster."
   type        = string
@@ -69,6 +74,16 @@ variable "vpc_id" {
 variable "owner_id" {
   description = " The owner ID of the VPC to peer with HCP HVN."
   type        = string
+}
+
+variable "private_route_table_ids" {
+  description = "The private route table IDs of the private subnets."
+  type        = list(string)
+}
+
+variable "database_route_table_ids" {
+  description = "The private route table IDs of the database subnets."
+  type        = list(string)
 }
 
 # Required Tags
