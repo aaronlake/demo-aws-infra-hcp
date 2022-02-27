@@ -16,3 +16,14 @@ module "vpc" {
   pii     = false
   ttl     = -1
 }
+
+module "vault" {
+  source = "./infrastructure/vault"
+
+  tier           = "starter_small"
+  vpc_cidr_block = module.vpc.vpc_cidr_block
+  aws_region     = var.region
+  hvn_region     = var.hvn_region
+  vpc_id         = module.vpc.vpc_id
+  owner_id       = module.vpc.vpc_owner_id
+}
