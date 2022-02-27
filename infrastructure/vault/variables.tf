@@ -71,6 +71,9 @@ variable "owner_id" {
   type        = string
 }
 
+# Required Tags
+########################
+
 variable "owner" {
   description = "Owner of the resource"
   type        = string
