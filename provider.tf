@@ -13,13 +13,12 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
+  region = local.vars.region
 
   default_tags {
     tags = local.common_tags
   }
 }
-
 
 provider "hcp" {
   client_id     = var.hcp_client_id
