@@ -22,6 +22,6 @@ provider "aws" {
 
 
 provider "hcp" {
-  client_id     = "6zV8dD7kENzwq60RYtJ4V4gvBonWz1kx"
-  client_secret = "Blx4BLUPf78SLEL2DSv8p7pQw4LNkCmHSa6Mgvc4sBWQF-NoeEzojv8xjCxgJexs"
+  client_id     = var.hcp_client_id
+  client_secret = var.hcp_client_secret
 }
