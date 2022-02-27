@@ -1,3 +1,10 @@
+locals {
+  common_tags = {
+    env       = var.env
+    terraform = true
+  }
+}
+
 variable "hvn_id" {
   description = "The ID of the HCP HVN."
   type        = string

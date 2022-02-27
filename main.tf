@@ -9,7 +9,7 @@ module "vpc" {
   # Global Tagging Requirements
   tags    = local.common_tags
   env     = var.env
-  service = "core"
+  service = "network"
   budget  = "ccoe"
   owner   = "ccoe"
   hipaa   = true
@@ -26,4 +26,11 @@ module "vault" {
   hvn_region     = var.hvn_region
   vpc_id         = module.vpc.vpc_id
   owner_id       = module.vpc.vpc_owner_id
+
+  service = "network"
+  budget  = "ccoe"
+  owner   = "ccoe"
+  hipaa   = false
+  pii     = false
+  ttl     = -1
 }

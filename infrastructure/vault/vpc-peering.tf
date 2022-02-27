@@ -20,4 +20,14 @@ resource "hcp_hvn_route" "this" {
 resource "aws_vpc_peering_connection_accepter" "this" {
   vpc_peering_connection_id = hcp_aws_network_peering.this.provider_peering_id
   auto_accept               = true
+
+  tags = merge(local.common_tags, {
+    Name    = "${var.env}-${var.service}-peer"
+    owner   = var.owner
+    budget  = var.budget
+    service = var.service
+    hipaa   = var.hipaa
+    pii     = var.pii
+    ttl     = -1
+  })
 }
