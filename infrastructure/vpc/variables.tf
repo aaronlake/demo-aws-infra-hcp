@@ -56,6 +56,11 @@ variable "public_subnets" {
   type        = list(string)
 }
 
+variable "database_subnets" {
+  description = "Database subnets"
+  type        = list(string)
+}
+
 variable "enable_nat_gateway" {
   description = "Enable NAT Gateway"
   type        = bool

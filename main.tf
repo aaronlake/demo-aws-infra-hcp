@@ -27,6 +27,7 @@ module "vault" {
   vpc_id         = module.vpc.vpc_id
   owner_id       = module.vpc.vpc_owner_id
 
+  env     = var.env
   service = "network"
   budget  = "ccoe"
   owner   = "ccoe"
