@@ -5,6 +5,11 @@ locals {
   }
 }
 
+variable "env" {
+  description = "The environment to deploy to"
+  type        = string
+}
+
 variable "hvn_id" {
   description = "The ID of the HCP HVN."
   type        = string
