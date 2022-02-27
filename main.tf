@@ -6,6 +6,7 @@ module "vpc" {
   private_subnets    = var.private_subnets
   database_subnets   = var.database_subnets
   enable_nat_gateway = var.enable_nat_gateway
+  single_nat_gateway = var.single_nat_gateway
 
   # Global Tagging Requirements
   tags    = local.common_tags

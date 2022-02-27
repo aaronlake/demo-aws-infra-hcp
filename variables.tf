@@ -40,6 +40,11 @@ variable "enable_nat_gateway" {
   type        = bool
 }
 
+variable "single_nat_gateway" {
+  description = "Single NAT Gateway"
+  type        = bool
+}
+
 variable "hcp_client_id" {
   description = "HCP Client ID"
   type        = string
