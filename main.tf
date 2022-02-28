@@ -9,7 +9,6 @@ module "vpc" {
   single_nat_gateway = local.vars.single_nat_gateway
 
   # Global Tagging Requirements
-  tags    = local.common_tags
   env     = local.vars.env
   service = "network"
   budget  = "ccoe"
@@ -32,6 +31,7 @@ module "vault" {
   private_route_table_ids  = module.vpc.private_route_table_ids
   database_route_table_ids = module.vpc.database_route_table_ids
 
+  # Global Tagging Requirements
   env     = local.vars.env
   service = "network"
   budget  = "ccoe"

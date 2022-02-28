@@ -27,6 +27,7 @@ module "vpc" {
     hipaa = true
   })
 
+  # Global tagging requirements
   tags = merge(local.common_tags, {
     owner   = var.owner
     budget  = var.budget

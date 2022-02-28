@@ -17,6 +17,7 @@ resource "aws_vpc_peering_connection_accepter" "this" {
   vpc_peering_connection_id = hcp_aws_network_peering.this.provider_peering_id
   auto_accept               = true
 
+  # Global tagging requirements
   tags = merge(local.common_tags, {
     Name    = "${var.env}-${var.service}-peer"
     owner   = var.owner
