@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
-
 resource "hcp_aws_network_peering" "this" {
   hvn_id          = hcp_hvn.this.hvn_id
   peering_id      = var.peering_id
