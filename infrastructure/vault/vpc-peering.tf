@@ -30,17 +30,13 @@ resource "aws_vpc_peering_connection_accepter" "this" {
 }
 
 resource "aws_route" "private" {
-  count = length(var.private_route_table_ids)
-
-  route_table_id            = var.private_route_table_ids[count.index]
+  route_table_id            = var.private_route_table_ids[0]
   destination_cidr_block    = var.hvn_cidr_block
   vpc_peering_connection_id = hcp_aws_network_peering.this.provider_peering_id
 }
 
 resource "aws_route" "database" {
-  count = length(var.database_route_table_ids)
-
-  route_table_id            = var.database_route_table_ids[count.index]
+  route_table_id            = var.database_route_table_ids[0]
   destination_cidr_block    = var.hvn_cidr_block
   vpc_peering_connection_id = hcp_aws_network_peering.this.provider_peering_id
 }
