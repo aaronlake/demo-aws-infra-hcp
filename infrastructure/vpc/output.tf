@@ -25,3 +25,7 @@ output "private_route_table_ids" {
 output "database_route_table_ids" {
   value = module.vpc.database_route_table_ids
 }
+
+output "private_subnets_cidr_blocks" {
+  value = module.vpc.private_subnets_cidr_blocks
+}
