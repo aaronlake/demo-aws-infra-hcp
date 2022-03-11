@@ -19,5 +19,5 @@ output "private_subnets_cidr_blocks" {
 }
 
 output "hvn_cidr_block" {
-  value = var.hvn_cidr_block
+  value = module.vault.hvn_cidr_block
 }
