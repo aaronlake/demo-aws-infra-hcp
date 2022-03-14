@@ -5,6 +5,16 @@ locals {
   }
 }
 
+variable "region" {
+  description = "AWS Region"
+  type        = string
+}
+
+variable "env" {
+  description = "Environment (dev/stage/prod)"
+  type        = string
+}
+
 variable "hcp_client_id" {
   description = "HCP Client ID"
   type        = string
