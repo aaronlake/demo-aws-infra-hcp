@@ -1,8 +1,4 @@
 locals {
-  vars = merge(
-    yamldecode(file("vars.${terraform.workspace}.yaml"))
-  )
-
   common_tags = {
     env       = local.vars.env
     terraform = true
