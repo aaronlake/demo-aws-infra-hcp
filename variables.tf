@@ -1,6 +1,6 @@
 locals {
   common_tags = {
-    env       = local.vars.env
+    env       = vars.env
     terraform = true
   }
 }
