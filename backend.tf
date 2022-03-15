@@ -3,7 +3,7 @@ terraform {
     organization = "Unicorp"
 
     workspaces {
-      prefix = "infrastructure_"
+      name = "demo-aws-infra-hcp"
     }
   }
 }
